@@ -1,0 +1,9 @@
+{
+  "name": "fruits basket",
+  "fruitQuantity": 7,
+  "fruits": [
+    "apple",
+    "orange",
+    "pinapple"
+  ]
+}
