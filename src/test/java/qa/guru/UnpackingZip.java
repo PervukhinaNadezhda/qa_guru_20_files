@@ -16,8 +16,7 @@ import java.util.zip.ZipFile;
 
 public class UnpackingZip {
     @Test
-    void readingAndCheckingFilesInZipTest() throws Exception {
-
+    void checkPdfFileTest() throws Exception {
         ZipFile zf = new ZipFile("src/test/resources/example.zip");
 
         ZipEntry entryPdf = zf.getEntry("1_pdf.pdf");
@@ -25,6 +24,11 @@ public class UnpackingZip {
             PDF pdf = new PDF(stream);
             Assertions.assertEquals("test \r\n", pdf.text);
         }
+    }
+
+    @Test
+    void checkXlsFileTest() throws Exception {
+        ZipFile zf = new ZipFile("src/test/resources/example.zip");
 
         ZipEntry entryXls = zf.getEntry("2_xl.xls");
         try (InputStream stream = zf.getInputStream(entryXls)) {
@@ -35,6 +39,11 @@ public class UnpackingZip {
                     .getCell(0)
                     .getStringCellValue());
         }
+    }
+
+    @Test
+    void checkCsvFileTest() throws Exception {
+        ZipFile zf = new ZipFile("src/test/resources/example.zip");
 
         ZipEntry entryCsv = zf.getEntry("3_qa_guru.csv");
         try (InputStream stream = zf.getInputStream(entryCsv)) {

@@ -12,7 +12,7 @@ public class OpenJson {
     ObjectMapper mapper = new ObjectMapper();
 
     @Test
-    void OpenJsonTest() throws Exception {
+    void openJsonTest() throws Exception {
         Model test = mapper.readValue(file, Model.class);
 
         Assertions.assertEquals("fruits basket", test.getName());
